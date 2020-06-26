@@ -36,6 +36,7 @@ def tryIO(num):
         execCmd("cat " + expected_file, True)
         print("Got:", flush = True)
         execCmd("cat result.txt", True)
+        print("Failed Test, Input: " + str(num))
 
 def run_tests():
     checkFileAndExit("Solution.java")
