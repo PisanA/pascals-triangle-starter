@@ -32,9 +32,9 @@ def tryIO(num):
     if diff_result == 0:
         print("Passed Test, Input: " + str(num))
     else:
-        print("Expected:")
+        print("Expected:", flush = True)
         execCmd("cat " + expected_file, True)
-        print("Got:")
+        print("Got:", flush = True)
         execCmd("cat result.txt", True)
 
 def run_tests():
