@@ -3,6 +3,10 @@
 import os
 import sys
 
+if not sys.version_info >= (3, 5):
+    print("%s needs python 3.5 or later" % __file__)
+    sys.exit(-1)
+
 def checkFileAndExit(fname):
     if not os.path.exists(fname):
         print(fname + " does not exist, exiting")
@@ -19,6 +23,7 @@ def execCmd(cmd, quiet = False):
 
 def tryIO(num):
     checkFileAndRemove("result.txt")
+    print("Running Test, Input: " + str(num), flush = True)
     cmd = "java Solution " + str(num) + " > result.txt"
     expected_file = "./.testing/out-" + str(num) + ".txt"
     execCmd(cmd, True)
